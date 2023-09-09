@@ -34,11 +34,6 @@ const Register = () => {
     console.log(user) // Remover com o final do projeto
 
     dispatch(register(user))
-
-    setName('')
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
   }
 
   // Clean all auth states
