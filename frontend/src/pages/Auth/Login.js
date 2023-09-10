@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <div id='login'>
       <h2>Reactgram</h2>
-      <p className='subtitle'>Realize o logni para ver o que há de novo!</p>
+      <p className='subtitle'>Realize o login para ver o que há de novo!</p>
       <form onSubmit={handleSubmit}>
         <input type='text' placeholder='E-mail' value={email || ''} onChange={e => setEmail(e.target.value)}/>
         <input type='password' placeholder='Senha' value={password || ''} onChange={e => setPassword(e.target.value)}/>
