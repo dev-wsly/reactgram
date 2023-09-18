@@ -23,6 +23,7 @@ const photoInsertValidation = () => {
 const photoUpdateValidation = () => {
     return [
         body('title')
+            .optional()
             .isString()
             .withMessage('O título é obrigatório para atualização da postagem!')
             .isLength({min: 5})
@@ -32,7 +33,7 @@ const photoUpdateValidation = () => {
 
 const commentValidation = () => {
     return [
-        body('comments')
+        body('comment')
         .isString()
         .withMessage('O comentário é obrigatório como texto!')
         .isLength({min: 5})

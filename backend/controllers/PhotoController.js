@@ -127,7 +127,7 @@ const likePhoto = async (req, res) => {
 // Comment functionality
 const commentPhoto = async (req, res) => {
     const {id} = req.params
-    const {comments} = req.body
+    const {comment} = req.body
     const reqUser = req.user
 
     try {
@@ -136,7 +136,7 @@ const commentPhoto = async (req, res) => {
 
         // Put comment in the array comments
         const userComment = {
-            comments,
+            comment,
             userName: user.name,
             userImage: user.profileImage,
             userId: user._id
