@@ -2,7 +2,7 @@ import './Navbar.css'
 
 // Components
 import {NavLink, Link} from 'react-router-dom'
-import {BsSearch, BsHouseDoorFill, BsFillPersonFill, BsFillCameraFill, BsCamera2, BsCameraFill} from 'react-icons/bs'
+import {BsSearch, BsHouseDoorFill, BsFillPersonFill, BsCameraFill} from 'react-icons/bs'
 
 //Hooks
 import { useState } from 'react'
@@ -14,6 +14,8 @@ import { useNavigate } from 'react-router-dom'
 import { logout, reset } from '../slices/authSlice'
 
 const Navbar = () => {
+    const [query, setQuery] = useState('')
+
     const { auth } = useAuth()
     const { user } = useSelector(state => state.auth)
 
@@ -27,12 +29,19 @@ const Navbar = () => {
         navigate('/login')
     }
 
+    const handleSearch = (e) => {
+        e.preventDefault()
+
+        if (query)
+            return navigate(`/search?q=${query}`)
+    }
+
   return (
     <nav id='nav'>
         <Link to="/">Reactgram</Link>
-        <form id='search-form'>
+        <form id='search-form' onSubmit={handleSearch}>
             <BsSearch/>
-            <input type='text' placeholder='Pesquisar'/>
+            <input type='text' placeholder='Pesquisar' value={query || ''} onChange={e => setQuery(e.target.value)}/>
         </form>
         <ul id='nav-links'>
             {auth ? (
